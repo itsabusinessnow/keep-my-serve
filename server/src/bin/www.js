@@ -10,10 +10,20 @@ import http from 'http';
 import mongoose from 'mongoose';
 const debug = debugLib('keep-my:server');
 
+// Connect to our Database and handle any bad connections
+mongoose.connect(process.env.MONGO_URI_DEV, {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.Promise = global.Promise; // Tell Mongoose to use ES6 promises
+mongoose.connection.on('error', (err) => {
+  debug(`🙅 🚫 🙅 🚫 🙅 🚫 🙅 🚫 → ${err.message}`);
+});
+
+// import all of our models
+
+
+
 /**
  * Get port from environment and store in Express.
  */
-
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 

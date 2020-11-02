@@ -26,7 +26,11 @@
     "prod": "NODE_ENV=production npm-run-all build server",
     "transpile": "babel ./src --out-dir dist-src",
     "clean": "rimraf dist-src",
-    "watch:dev": "nodemon",
+    "watch": "nodemon",
+    "sample": "node ./dist-src/data/load-sample-data",
+    "flush": "node ./dist-src/data/load-sample-data --delete",
+    "load-sample": "NODE_ENV=development DEBUG=keep-my* npm-run-all build sample",
+    "flush-sample": "NODE_ENV=development DEBUG=keep-my* npm-run-all build flush",
     "test": "jest"
   },
   "author": "",
@@ -45,10 +49,5 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.6"
-  },
-  "babel": {
-    "presets": [
-      "@babel/preset-env"
-    ]
   }
 }

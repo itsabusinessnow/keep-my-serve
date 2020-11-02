@@ -7,9 +7,9 @@
   Instead of using try{} catch(e) {} in each controller, we wrap the function in
   catchErrors(), catch any errors they throw, and pass it along to our express middleware with next()
 */
-exports.catchErrors = function (fn) {
+exports.catchErrors = fn => {
   return function (req, res, next) {
-    return fn(req, res, next)["catch"](next);
+    return fn(req, res, next).catch(next);
   };
 };
 /*
@@ -19,7 +19,7 @@ exports.catchErrors = function (fn) {
 */
 
 
-exports.notFound = function (req, res, next) {
+exports.notFound = (req, res, next) => {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
@@ -31,13 +31,11 @@ exports.notFound = function (req, res, next) {
 */
 
 
-exports.flashValidationErrors = function (err, req, res, next) {
+exports.flashValidationErrors = (err, req, res, next) => {
   if (!err.errors) return next(err); // validation errors look like
 
   var errorKeys = Object.keys(err.errors);
-  errorKeys.forEach(function (key) {
-    return req.flash('error', err.errors[key].message);
-  });
+  errorKeys.forEach(key => req.flash('error', err.errors[key].message));
   res.redirect('back');
 };
 /*
@@ -47,7 +45,7 @@ exports.flashValidationErrors = function (err, req, res, next) {
 */
 
 
-exports.developmentErrors = function (err, req, res, next) {
+exports.developmentErrors = (err, req, res, next) => {
   err.stack = err.stack || '';
   var errorDetails = {
     message: err.message,
@@ -57,13 +55,11 @@ exports.developmentErrors = function (err, req, res, next) {
   res.status(err.status || 500);
   res.format({
     // Based on the `Accept` http header
-    'text/html': function textHtml() {
+    'text/html': () => {
       res.render('error', errorDetails);
     },
     // Form Submit, Reload the page
-    'application/json': function applicationJson() {
-      return res.json(errorDetails);
-    } // Ajax call, send JSON back
+    'application/json': () => res.json(errorDetails) // Ajax call, send JSON back
 
   });
 };
@@ -74,7 +70,7 @@ exports.developmentErrors = function (err, req, res, next) {
 */
 
 
-exports.productionErrors = function (err, req, res, next) {
+exports.productionErrors = (err, req, res, next) => {
   res.status(err.status || 500);
   res.render('error', {
     message: err.message,

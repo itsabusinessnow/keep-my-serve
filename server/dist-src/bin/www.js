@@ -13,22 +13,35 @@ var _http = _interopRequireDefault(require("http"));
 
 var _mongoose = _interopRequireDefault(require("mongoose"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var debug = (0, _debug["default"])('keep-my:server');
+var debug = (0, _debug.default)('keep-my:server'); // Connect to our Database and handle any bad connections
+
+_mongoose.default.connect(process.env.MONGO_URI_DEV, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+
+_mongoose.default.Promise = global.Promise; // Tell Mongoose to use ES6 promises
+
+_mongoose.default.connection.on('error', err => {
+  debug("\uD83D\uDE45 \uD83D\uDEAB \uD83D\uDE45 \uD83D\uDEAB \uD83D\uDE45 \uD83D\uDEAB \uD83D\uDE45 \uD83D\uDEAB \u2192 ".concat(err.message));
+}); // import all of our models
+
 /**
  * Get port from environment and store in Express.
  */
 
+
 var port = normalizePort(process.env.PORT || '3000');
 
-_app["default"].set('port', port);
+_app.default.set('port', port);
 /**
  * Create HTTP server.
  */
 
 
-var server = _http["default"].createServer(_app["default"]);
+var server = _http.default.createServer(_app.default);
 /**
  * Listen on provided port, on all network interfaces.
  */

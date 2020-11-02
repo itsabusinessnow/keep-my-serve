@@ -2,7 +2,7 @@ require('dotenv').config({ path: __dirname + '/../../.env' });
 import fs from 'fs';
 
 import mongoose from 'mongoose';
-mongoose.connect(process.env.MONGO_URI_DEV);
+mongoose.connect(process.env.MONGO_URI_DEV, {useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.Promise = global.Promise; // Tell Mongoose to use ES6 promises
 
 // import all of our models - they need to be imported only once

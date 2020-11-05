@@ -1,0 +1,13 @@
+/actors
+  - GET // Get all actors across organisations and accounts. Needs strict strict security
+  /:organisation
+    - GET // Get all actors for a specific organisation
+    /:account
+      - GET // Get all actors for a specific organisation and account
+/actor
+  /:actor
+    - GET // Get a specific actor. Needs strict security
+    /:organisation
+      - GET // Get a specific actor from an organisation. Can only be "public" actors.
+      /:account
+        - GET // Get a specif actor from an organisation and account. 

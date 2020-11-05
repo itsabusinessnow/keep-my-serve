@@ -1,0 +1,41 @@
+[
+  {
+    "_id": "58c03a958060197ca0b52d50",
+    "organisation": "58c03ac18060197ca0b52d51",
+    "account": "58c039018060197ca0b52d4c",
+    "public": false,
+    "birthDate": 342053219000,
+    "deathDate": null,
+    "firstName": "Peter",
+    "lastName": "Jefferson",
+    "gender": "M",
+    "nationality": "United States of America",
+    "website": "https://www.google.com"
+  },
+  {
+    "_id": "58c08780bbb1a51e0d43a051",
+    "organisation": "58c03ac18060197ca0b52d51",
+    "account": "58c039018060197ca0b52d4c",
+    "public": false,
+    "birthDate": 444610019000,
+    "deathDate": null,
+    "firstName": "Jane",
+    "lastName": "Peterson",
+    "gender": "F",
+    "nationality": "Mexico",
+    "website": "https://www.google.com"
+  },
+  {
+    "_id": "58c08796bbb1a51e0d43a052",
+    "organisation": "58c03ac18060197ca0b52d51",
+    "account": "58c03ada8060197ca0b52d52",
+    "public": false,
+    "birthDate": -186541981000,
+    "deathDate": 1478126819000,
+    "firstName": "Alex",
+    "lastName": "Killion",
+    "gender": "F",
+    "nationality": "Canada",
+    "website": "https://www.google.com"
+  }
+]

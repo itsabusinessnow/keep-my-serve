@@ -1,0 +1,9 @@
+[
+  {
+    "_id": "58c03ac18060197ca0b52d51",
+    "name": "First Org",
+    "token": "123",
+    "accounts": ["58c039018060197ca0b52d4c", "58c03ada8060197ca0b52d52"],
+    "adminAccounts": ["58c039018060197ca0b52d4c"]
+  }
+]

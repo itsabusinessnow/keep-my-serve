@@ -7,12 +7,21 @@ mongoose.Promise = global.Promise; // Tell Mongoose to use ES6 promises
 
 // import all of our models - they need to be imported only once
 import Organisation from '../models/Organisation';
+import Account from '../models/Account';
+import Actor from '../models/Actor';
+import SimpleText from '../models/SimpleText';
 
-const organisations = JSON.parse(fs.readFileSync('sample-data/organisation.json', 'utf-8'));
+const organisations = JSON.parse(fs.readFileSync('sample-data/organisations.json', 'utf-8'));
+const accounts = JSON.parse(fs.readFileSync('sample-data/accounts.json', 'utf-8'));
+const actors = JSON.parse(fs.readFileSync('sample-data/actors.json', 'utf-8'));
+const simpleTexts = JSON.parse(fs.readFileSync('sample-data/simpleTexts.json', 'utf-8'));
 
 async function deleteData() {
   console.log('😢😢 Goodbye Data...');
   await Organisation.remove();
+  await Account.remove();
+  await Actor.remove();
+  await SimpleText.remove();
   console.log('Data Deleted. To load sample data, run\n\n\t npm run load-sample\n\n');
   process.exit();
 }
@@ -20,6 +29,9 @@ async function deleteData() {
 async function loadData() {
   try {
     await Organisation.insertMany(organisations);
+    await Account.insertMany(accounts);
+    await Actor.insertMany(actors);
+    await SimpleText.insertMany(simpleTexts);
     console.log('👍👍👍👍👍👍👍👍 Done!');
     process.exit();
   } catch(e) {

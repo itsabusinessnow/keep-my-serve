@@ -4,10 +4,14 @@
  * Module dependencies.
  */
 
-import app from '../app';
 import debugLib from 'debug';
 import http from 'http';
 import mongoose from 'mongoose';
+import Organisation from '../models/Organisation';
+import Account from '../models/Account';
+import Actor from '../models/Actor';
+import SimpleText from '../models/SimpleText';
+import app from '../app';
 const debug = debugLib('keep-my:server');
 
 // Connect to our Database and handle any bad connections
@@ -16,9 +20,6 @@ mongoose.Promise = global.Promise; // Tell Mongoose to use ES6 promises
 mongoose.connection.on('error', (err) => {
   debug(`🙅 🚫 🙅 🚫 🙅 🚫 🙅 🚫 → ${err.message}`);
 });
-
-// import all of our models
-
 
 
 /**

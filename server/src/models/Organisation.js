@@ -7,6 +7,8 @@ const organisationSchema = new mongoose.Schema({
     required: 'You must provide an organisation name.',
   },
   token: String,
+  accounts: [mongoose.Schema.ObjectId],
+  adminAccounts: [mongoose.Schema.ObjectId],
 }, { timestamps: true });
 
 export default mongoose.model('Organisation', organisationSchema);

@@ -1,0 +1,14 @@
+[
+  {
+    "_id": "58c039018060197ca0b52d4c",
+    "googleUserId": "123",
+    "name": "Peter Admin",
+    "organisations": ["58c03ac18060197ca0b52d51"]
+  },
+  {
+    "_id": "58c03ada8060197ca0b52d52",
+    "googleUserId": "987",
+    "name": "Jeffrey Normal",
+    "organisations": ["58c03ac18060197ca0b52d51"]
+  }
+]

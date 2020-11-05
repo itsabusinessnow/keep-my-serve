@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../../public')));
 
 // After allllll that above middleware, we finally handle our own routes!
-app.use('/', routes);
+app.use('/api/v1', routes);
 
 // If that above routes didnt work, we 404 them and forward to error handler
 app.use(errorHandlers.notFound);

@@ -1,0 +1,18 @@
+[
+  {
+    "_id": "58c039938060197ca0b52d4d",
+    "organisation": "58c03ac18060197ca0b52d51",
+    "account": "58c039018060197ca0b52d4c",
+    "public": false,
+    "text": "If it is endurable, then endure it. Stop complaining.",
+    "abstract": "",
+    "authorActor": "58c03a958060197ca0b52d50",
+    "recipientActors": [],
+    "date": 1604417523,
+    "location": {
+      "coordinates": [-79.87110239999998, 43.2557206],
+      "address": "Hamilton, ON, Canada"
+    },
+    "sourceUrl": "https://www.google.com"
+  }
+]

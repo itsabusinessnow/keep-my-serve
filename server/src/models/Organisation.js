@@ -1,14 +1,18 @@
 import mongoose from 'mongoose';
+
 mongoose.Promise = global.Promise;
 
-const organisationSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: 'You must provide an organisation name.',
+const organisationSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: 'You must provide an organisation name.',
+    },
+    token: String,
+    accounts: [mongoose.Schema.ObjectId],
+    adminAccounts: [mongoose.Schema.ObjectId],
   },
-  token: String,
-  accounts: [mongoose.Schema.ObjectId],
-  adminAccounts: [mongoose.Schema.ObjectId],
-}, { timestamps: true });
+  { timestamps: true }
+);
 
 export default mongoose.model('Organisation', organisationSchema);

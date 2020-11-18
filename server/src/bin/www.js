@@ -40,6 +40,7 @@ function normalizePort(val) {
 mongoose.connect(process.env.MONGO_URI_DEV, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  useFindAndModify: false,
 });
 mongoose.Promise = global.Promise; // Tell Mongoose to use ES6 promises
 mongoose.connection.on('error', (err) => {
